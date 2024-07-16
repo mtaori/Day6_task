@@ -160,7 +160,6 @@ minikube start**
 
 ![1721109903864](images/Day6readme/1721109903864.png)
 
-
 **4.3. Apply Manifests to Minikube
 
 Apply the deployment:
@@ -190,9 +189,6 @@ curl http://<minikube-ip>:30001**
 by hitting the ip :
 
 ![1721117337366](images/Day6readme/1721117337366.png)
-
-
-
 
 **### Making Changes to the App and Redeploying Using Kubernetes
 
@@ -236,5 +232,34 @@ Add and commit the changes:
 git add .
 
 git commit -m "Update main route message"
+
+**
+
+
+![1721117801377](images/Day6readme/1721117801377.png)
+
+
+
+**### 7. Merge the Changes and Rebuild the Docker Image
+
+7.1. Merge the Feature Branch
+
+Switch back to the main branch:
+
+git checkout main
+
+Merge the feature/update-message branch:
+
+git merge --ff-only feature/update-message
+
+Delete the feature branch:
+
+git branch -d feature/update-message
+
+7.2. Rebuild the Docker Image
+
+Rebuild the Docker image with a new tag:
+
+docker build -t nodejs-k8s-app:v2 .
 
 **
