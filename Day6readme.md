@@ -235,10 +235,7 @@ git commit -m "Update main route message"
 
 **
 
-
 ![1721117801377](images/Day6readme/1721117801377.png)
-
-
 
 **### 7. Merge the Changes and Rebuild the Docker Image
 
@@ -252,6 +249,8 @@ Merge the feature/update-message branch:
 
 git merge --ff-only feature/update-message
 
+![1721118442727](images/Day6readme/1721118442727.png)
+
 Delete the feature branch:
 
 git branch -d feature/update-message
@@ -263,3 +262,28 @@ Rebuild the Docker image with a new tag:
 docker build -t nodejs-k8s-app:v2 .
 
 **
+
+![1721146889059](images/Day6readme/1721146889059.png)
+
+![1721146920171](images/Day6readme/1721146920171.png)
+
+
+**### 9. Access the Updated Application
+
+9.1. Access Through ClusterIP Service
+
+Forward the port to access the ClusterIP service:
+
+kubectl port-forward service/nodejs-service 8080:80
+
+1. Open your browser and navigate to http://localhost:8080 to see the updated message.
+
+9.2. Access Through NodePort Service
+
+Access the application using the NodePort:
+
+curl http://<minikube-ip>:30001**
+
+![1721147205484](images/Day6readme/1721147205484.png)
+
+![1721147158768](images/Day6readme/1721147158768.png)

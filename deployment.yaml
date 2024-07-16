@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: nodejs-app
-        image: mtaori/nodejs-k8s-app:latest
+        image: mtaori/nodejs-k8s-app:v2
         ports:
         - containerPort: 3000
